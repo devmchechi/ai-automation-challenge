@@ -35,12 +35,12 @@ The system consists of three specialized agents that work in sequence:
 
 ### Agent Responsibilities
 
-1. **JobParserAgent** (`job_parser.py`)
+1. **JobParserAgent** (`jobparser.py`)
    - Reads raw job posting text from file
    - Uses LLM to extract structured information (title, company, location, description)
    - Returns validated Pydantic model
 
-2. **RequirementAnalyzerAgent** (`requirement_analyzer.py`)
+2. **RequirementAnalyzerAgent** (`requirementanalyzer.py`)
    - Takes structured job data as input
    - Categorizes requirements into:
      - Technical skills (languages, frameworks, tools)
@@ -50,7 +50,7 @@ The system consists of three specialized agents that work in sequence:
      - Nice-to-have qualifications
    - Uses LLM reasoning to extract implicit requirements
 
-3. **ResumeMatcherAgent** (`resume_matcher.py`)
+3. **ResumeMatcherAgent** (`resumematcher.py`)
    - Reads resume text
    - Compares resume content against extracted requirements
    - Generates:
@@ -102,15 +102,15 @@ The `JobMatcherOrchestrator` class in `main.py` coordinates the workflow:
 job-matcher/
 ├── aiagent/
 │   ├── __init__.py
-│   ├── job_parser.py           # Agent 1: Parse job postings
-│   ├── requirement_analyzer.py # Agent 2: Extract requirements
-│   └── resume_matcher.py       # Agent 3: Match resume
+│   ├── jobparser.py           # Agent 1: Parse job postings
+│   ├── requirementanalyzer.py # Agent 2: Extract requirements
+│   └── resumematcher.py       # Agent 3: Match resume
 ├── docs/
 │   ├── job_posting.txt         # Sample job posting
 │   └── resume.txt              # Sample resume
 ├── tests/
 │   ├── __init__.py
-│   └── test_agents.py          # Unit tests
+│   └── test.py          # Unit tests
 ├── utils/
 │   ├── __init__.py
 │   ├── logger.py               # Logging utility
